@@ -61,6 +61,7 @@ class PrototypesController < ApplicationController
     params.require(:prototype).permit(:title, :catch_copy, :concept,:image).merge(user_id: current_user.id)
   end
 
+  #編集ページにアクセスする際、投稿したユーザー出ないとアクセスでいないように条件分岐している
   def move_to_index
     @prototype = Prototype.find(params[:id])
     unless current_user.id == @prototype.user_id
