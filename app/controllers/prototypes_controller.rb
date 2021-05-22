@@ -2,7 +2,7 @@ class PrototypesController < ApplicationController
   #ログイン状態によって表示するページを切り替えるコードでログインしていなければ、ログイン画面に遷移さる。
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
   #ログインしていて、投稿したユーザーとログインユーザーが違かったら編集ページに行けないように制限している
-  before_action :move_to_index, except: [:index, :new, :create, :show]
+  before_action :, except: [:index, :new, :create, :show]
 
   #トップページを表示させるコード
   def index
